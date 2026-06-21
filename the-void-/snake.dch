@@ -22,8 +22,17 @@
 "image": "\"res://Assets/Untitled_Artwork 8 copy.png\""
 },
 "mirror": false,
-"offset": Vector2(0, 0),
-"scale": 1,
+"offset": Vector2(-20, 0),
+"scale": 0.9,
+"scene": ""
+},
+"focus": {
+"export_overrides": {
+"image": "\"res://Assets/closedeyes.png\""
+},
+"mirror": false,
+"offset": Vector2(-20, 0),
+"scale": 0.9,
 "scene": ""
 },
 "happy": {
@@ -31,17 +40,18 @@
 "image": "\"res://Assets/Untitled_Artwork 1 copy.png\""
 },
 "mirror": false,
-"offset": Vector2(0, 0),
-"scale": 1,
+"offset": Vector2(-20, 0),
+"scale": 0.9,
 "scene": ""
 },
 "normal": {
 "export_overrides": {
 "image": "\"res://Assets/Untitled_Artwork 9.png\""
 },
+"ignore_char_scale": true,
 "mirror": false,
-"offset": Vector2(0, 0),
-"scale": 1,
+"offset": Vector2(-20, 0),
+"scale": 0.9,
 "scene": ""
 },
 "sad": {
@@ -49,8 +59,8 @@
 "image": "\"res://Assets/Untitled_Artwork 1.png\""
 },
 "mirror": false,
-"offset": Vector2(0, 0),
-"scale": 1,
+"offset": Vector2(-20, 0),
+"scale": 0.9,
 "scene": ""
 },
 "surprised": {
@@ -58,8 +68,8 @@
 "image": "\"res://Assets/Untitled_Artwork 13.png\""
 },
 "mirror": false,
-"offset": Vector2(0, 0),
-"scale": 1,
+"offset": Vector2(-20, 0),
+"scale": 0.9,
 "scene": ""
 }
 },

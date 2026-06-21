@@ -10,7 +10,7 @@ script = ExtResource("1_m2sqd")
 [node name="ColorRect" type="ColorRect" parent="." unique_id=2104869624]
 offset_right = 1236.0
 offset_bottom = 777.0
-color = Color(0, 0, 0, 1)
+color = Color(0.08468992, 0.08468992, 0.08468992, 1)
 
 [node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="." unique_id=1367148078]
 offset_left = -455.0
@@ -28,3 +28,4 @@ offset_bottom = 1194.0
 stream = ExtResource("3_m2sqd")
 
 [connection signal="finished" from="VideoStreamPlayer" to="." method="_on_video_stream_player_finished"]
+[connection signal="finished" from="VideoStreamPlayer2" to="." method="_on_video_stream_player_2_finished"]
