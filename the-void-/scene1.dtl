@@ -1,0 +1,7 @@
+join snake (confused) left
+snake: Where am I?
+snake (sad): I dont see anything but darkness...
+audio "res://Assets/New Recording 16.wav"
+[wait time="1.0"]
+snake (surprised): What was that-
+[end_timeline]

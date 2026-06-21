@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://c8gktx5q2a83w"]
+
+[ext_resource type="Script" uid="uid://brdgnr205roum" path="res://scene_1.gd" id="1_m2sqd"]
+[ext_resource type="VideoStream" uid="uid://cupyo8qh7ffis" path="res://Assets/Untitled_Artwork-4.ogv" id="1_rnpve"]
+[ext_resource type="VideoStream" uid="uid://blo0j6ps3lead" path="res://Assets/Untitled_Artwork-2.ogv" id="3_m2sqd"]
+
+[node name="Node2D" type="Node2D" unique_id=1839052247]
+script = ExtResource("1_m2sqd")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=2104869624]
+offset_right = 1236.0
+offset_bottom = 777.0
+color = Color(0, 0, 0, 1)
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="." unique_id=1367148078]
+offset_left = -455.0
+offset_top = -547.0
+offset_right = 1705.0
+offset_bottom = 1073.0
+stream = ExtResource("1_rnpve")
+
+[node name="VideoStreamPlayer2" type="VideoStreamPlayer" parent="." unique_id=2086265669]
+visible = false
+offset_left = -508.0
+offset_top = -426.0
+offset_right = 1652.0
+offset_bottom = 1194.0
+stream = ExtResource("3_m2sqd")
+
+[connection signal="finished" from="VideoStreamPlayer" to="." method="_on_video_stream_player_finished"]

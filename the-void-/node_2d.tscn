@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://duijbffowqmhk"]
+
+[ext_resource type="Script" uid="uid://bhg5wddnmji7b" path="res://button.gd" id="1_0e48y"]
+[ext_resource type="FontFile" uid="uid://bxqr4slmd06tr" path="res://ethnocentric/Ethnocentric-Regular.otf" id="1_wtcfe"]
+
+[node name="Node2D" type="Node2D" unique_id=25439251]
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1230034717]
+offset_right = 1260.0
+offset_bottom = 745.0
+color = Color(0, 0, 0, 1)
+
+[node name="Button" type="Button" parent="." unique_id=504101496]
+offset_left = 469.0
+offset_top = 435.0
+offset_right = 711.0
+offset_bottom = 530.0
+theme_override_font_sizes/font_size = 30
+text = "Start >"
+script = ExtResource("1_0e48y")
+
+[node name="Label" type="Label" parent="." unique_id=611348327]
+offset_left = 150.0
+offset_top = 219.0
+offset_right = 1069.0
+offset_bottom = 338.0
+theme_override_fonts/font = ExtResource("1_wtcfe")
+theme_override_font_sizes/font_size = 128
+text = "The Void?"
+
+[connection signal="button_down" from="Button" to="Button" method="_on_button_down"]

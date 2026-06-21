@@ -1,0 +1,16 @@
+join ned (content) right
+ned: Hello.
+ned (content): The name's Ned.
+ned (normal): And Im stuck in this void with you.
+ned: However, I know how to escape...
+join snake (surprised) left
+snake: You do?
+ned: Yes, this void and world is an illusion...
+snake (confused): ...
+ned (normal): See this chair?
+update snake (normal)
+ned (content): There is no chair...
+ned (normal): It is not the chair that disappears... it is only yourself
+update snake (surprised)
+[wait_input]
+[end_timeline]
