@@ -1,8 +1,84 @@
 [gd_scene format=3 uid="uid://bg5sc3qen8xfj"]
 
+[ext_resource type="Script" uid="uid://djp63drbwgi5y" path="res://sceme2.gd" id="1_8dm54"]
+[ext_resource type="Texture2D" uid="uid://juvej1mgfph2" path="res://Assets/checkerboard.png" id="2_3hvph"]
+[ext_resource type="Texture2D" uid="uid://dvly4ly7t4uv0" path="res://Assets/Snake_spritesheet.png" id="2_8dm54"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8dm54"]
+texture = ExtResource("2_8dm54")
+texture_region_size = Vector2i(40, 40)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+6:1/0 = 0
+7:1/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_jcpy2"]
+tile_size = Vector2i(40, 40)
+sources/0 = SubResource("TileSetAtlasSource_8dm54")
+
 [node name="Node2D" type="Node2D" unique_id=63489025]
+script = ExtResource("1_8dm54")
+
+[node name="snake" type="TileMapLayer" parent="." unique_id=1206131652]
+z_index = 1
+y_sort_enabled = true
+tile_set = SubResource("TileSet_jcpy2")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=309744915]
+position_smoothing_enabled = true
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1750443873]
+visible = false
 offset_right = 1827.0
 offset_bottom = 772.0
 color = Color(0.08627451, 0.08627451, 0.08627451, 1)
+
+[node name="TextureRect2" type="TextureRect" parent="." unique_id=1858494111]
+offset_left = 1088.0
+offset_top = -411.0
+offset_right = 3011.0
+offset_bottom = 765.0
+texture = ExtResource("2_3hvph")
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect4" type="TextureRect" parent="." unique_id=679238782]
+offset_left = 1088.0
+offset_top = 648.0
+offset_right = 3011.0
+offset_bottom = 1824.0
+texture = ExtResource("2_3hvph")
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect3" type="TextureRect" parent="." unique_id=1996993362]
+offset_left = -706.0
+offset_top = 648.0
+offset_right = 1217.0
+offset_bottom = 1824.0
+texture = ExtResource("2_3hvph")
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1310804933]
+offset_left = -706.0
+offset_top = -411.0
+offset_right = 1217.0
+offset_bottom = 765.0
+texture = ExtResource("2_3hvph")
+metadata/_edit_use_anchors_ = true
+
+[node name="Timer" type="Timer" parent="." unique_id=1879005550]
+wait_time = 0.3
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
