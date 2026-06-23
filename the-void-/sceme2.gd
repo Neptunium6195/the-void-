@@ -4,13 +4,16 @@ var snake_body = [Vector2i(5,10), Vector2i(4,10), Vector2i(3,10), Vector2i(2,10)
 var snake_direction = Vector2i(1,0)
 
 const SOURCE_ID = 0
+var visual_head_pos: Vector2
 
 func _ready():
-	print("TileSet: ", $snake.tile_set)
-	print("Source count: ", $snake.tile_set.get_source_count())
-	print("Source ID 0 exists: ", $snake.tile_set.has_source(0))
-	$Camera2D.zoom = Vector2(2, 2)
+	print("h walls sample: ", $walls.get_used_cells().slice(0, 10))
+	print("v walls sample: ", $walls2.get_used_cells().slice(0, 10))
+	#print("wall cells count: ", $walls.get_used_cells().size())
+	$Camera2D.zoom = Vector2(1.5, 1.5)
 	draw_snake()
+	visual_head_pos = $snake.map_to_local(snake_body[0])
+	$Camera2D.global_position = visual_head_pos
 	update_camera()
 
 func draw_snake():
@@ -88,8 +91,29 @@ func relation2(first_block: Vector2i, second_block: Vector2i):
 
 func move_snake():
 	snake_direction = buffer_dir
-	delete_tiles()
 	var new_head = snake_body[0] + snake_direction
+	var new_head_pixel = $snake.map_to_local(new_head)
+	"""print("checking: ", new_head, " h:", $walls.get_cell_source_id(new_head), " v:", $walls2.get_cell_source_id(new_head))
+	if $walls.get_cell_source_id(new_head) != -1 || $walls2.get_cell_source_id(new_head) != -1:
+		print("wall")
+		return"""
+	var hit_wall = false
+	for cell in $walls.get_used_cells():
+		var wall_pixel = $walls.map_to_local(cell)
+		if new_head_pixel.distance_to(wall_pixel) < $snake.tile_set.tile_size.x:
+			hit_wall = true
+			break
+	if not hit_wall:
+		for cell in $walls2.get_used_cells():
+			var wall_pixel = $walls2.map_to_local(cell)
+			if new_head_pixel.distance_to(wall_pixel) < $snake.tile_set.tile_size.x:
+				hit_wall = true
+				break
+	if hit_wall:
+		print("wall hit!")
+		return  
+		
+	delete_tiles()
 	snake_body.insert(0, new_head)
 	snake_body.pop_back()
 	#print("moving, direction: ", snake_direction)
@@ -100,10 +124,8 @@ func delete_tiles():
 		$snake.erase_cell(cell)
 
 func update_camera():
-	var tile_size = $snake.tile_set.tile_size
-	# Convert tile coords to world position accounting for TileMapLayer's own position
-	var head_world_pos = $snake.map_to_local(snake_body[0])
-	$Camera2D.global_position = head_world_pos
+	var target = $snake.map_to_local(snake_body[0])
+	visual_head_pos = target
 	
 var buffer_dir = Vector2i(1,0)
 	
@@ -137,6 +159,8 @@ func reset():
 	
 func _process(delta):
 	#check_game_over()
+	var target = $snake.map_to_local(snake_body[0])
+	$Camera2D.global_position = $Camera2D.global_position.lerp(target, delta * 8.0)
 	pass
 	
 func _on_timer_timeout() -> void:
