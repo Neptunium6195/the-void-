@@ -4,18 +4,19 @@
 [ext_resource type="Texture2D" uid="uid://juvej1mgfph2" path="res://Assets/checkerboard.png" id="2_3hvph"]
 [ext_resource type="Texture2D" uid="uid://dvly4ly7t4uv0" path="res://Assets/Snake_spritesheet.png" id="2_8dm54"]
 [ext_resource type="Texture2D" uid="uid://cydi8562qok3" path="res://Assets/horz.png" id="2_nfnsu"]
-[ext_resource type="Texture2D" uid="uid://1xbu3omxwrpq" path="res://Assets/resized-images/Untitled_Artwork 14.png" id="2_sa2wl"]
+[ext_resource type="FontFile" uid="uid://bxqr4slmd06tr" path="res://ethnocentric/Ethnocentric-Regular.otf" id="2_xfgdl"]
 [ext_resource type="Texture2D" uid="uid://cgvpfcwmv5taa" path="res://Assets/pixil-frame-0-13.png" id="3_nfnsu"]
-[ext_resource type="Texture2D" uid="uid://daussuh3sc4tn" path="res://Assets/resized-images/Untitled_Artwork 13.png" id="3_xfgdl"]
-[ext_resource type="Texture2D" uid="uid://cwvlliexaeuva" path="res://Assets/resized-images/Untitled_Artwork 12.png" id="4_rn5j6"]
-[ext_resource type="Texture2D" uid="uid://gyr3i0a2jmue" path="res://Assets/resized-images/Untitled_Artwork 11.png" id="5_fgt4w"]
 [ext_resource type="Texture2D" uid="uid://caaa4i0r04ylt" path="res://Assets/horizontal.png" id="6_2ukta"]
-[ext_resource type="Texture2D" uid="uid://cisrok7oxs7k8" path="res://Assets/resized-images/Untitled_Artwork 10.png" id="6_c78tf"]
 [ext_resource type="Texture2D" uid="uid://b50lfw7vdhd3y" path="res://Assets/vertical.png" id="7_72l6d"]
-[ext_resource type="Texture2D" uid="uid://5phow56m6twb" path="res://Assets/resized-images/Untitled_Artwork 9.png" id="7_wu4ic"]
 [ext_resource type="Texture2D" uid="uid://dp5cfsov6ll4m" path="res://Assets/resized-images/Untitled_Artwork 9 copy 2.png" id="8_vuhtq"]
 [ext_resource type="Texture2D" uid="uid://ctf07lg1oy7xk" path="res://Assets/resized-images/Untitled_Artwork 9 copy.png" id="9_n4bvh"]
 [ext_resource type="Texture2D" uid="uid://ddctt2f4f6erl" path="res://Assets/resized-images/Untitled_Artwork 10 copy.png" id="10_33owt"]
+[ext_resource type="Texture2D" uid="uid://cpm0xvjtypw0a" path="res://Assets/resized-images/resized-letters/Untitled_Artwork 9.png" id="11_sa2wl"]
+[ext_resource type="Texture2D" uid="uid://dq2tep7ungqgr" path="res://Assets/resized-images/z.png" id="12_sa2wl"]
+[ext_resource type="Texture2D" uid="uid://4ep6y700vj3l" path="res://Assets/resized-images/resized-letters/Untitled_Artwork 11.png" id="13_sa2wl"]
+[ext_resource type="Texture2D" uid="uid://dep3nd8qkg25r" path="res://Assets/resized-images/resized-letters/Untitled_Artwork 12.png" id="14_sa2wl"]
+[ext_resource type="Texture2D" uid="uid://bsqw7icdbekms" path="res://Assets/resized-images/resized-letters/Untitled_Artwork 13.png" id="15_sa2wl"]
+[ext_resource type="Texture2D" uid="uid://kdptuarxy8ai" path="res://Assets/resized-images/resized-letters/Untitled_Artwork 14.png" id="16_sa2wl"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_64ein"]
 texture = ExtResource("2_nfnsu")
@@ -273,8 +274,8 @@ sources/5 = SubResource("TileSetAtlasSource_1lry2")
 sources/6 = SubResource("TileSetAtlasSource_un2r7")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_sa2wl"]
-texture = ExtResource("7_wu4ic")
-3:0/0 = 0
+texture = ExtResource("11_sa2wl")
+texture_region_size = Vector2i(40, 40)
 1:1/0 = 0
 2:1/0 = 0
 1:2/0 = 0
@@ -283,78 +284,94 @@ texture = ExtResource("7_wu4ic")
 2:0/0 = 0
 3:1/0 = 0
 3:2/0 = 0
+3:0/0 = 0
+0:0/0 = 0
+0:1/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_xfgdl"]
+tile_size = Vector2i(40, 40)
 sources/0 = SubResource("TileSetAtlasSource_sa2wl")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rn5j6"]
-texture = ExtResource("6_c78tf")
+texture = ExtResource("12_sa2wl")
+texture_region_size = Vector2i(40, 40)
 1:1/0 = 0
 2:1/0 = 0
 1:2/0 = 0
 2:2/0 = 0
 1:3/0 = 0
 2:3/0 = 0
+0:0/0 = 0
+1:0/0 = 0
+0:1/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_fgt4w"]
+tile_size = Vector2i(40, 40)
 sources/0 = SubResource("TileSetAtlasSource_rn5j6")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_c78tf"]
-texture = ExtResource("5_fgt4w")
+texture = ExtResource("13_sa2wl")
+texture_region_size = Vector2i(40, 40)
 1:0/0 = 0
 2:0/0 = 0
 1:1/0 = 0
 2:1/0 = 0
 1:2/0 = 0
 2:2/0 = 0
+0:0/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_wu4ic"]
+tile_size = Vector2i(40, 40)
 sources/0 = SubResource("TileSetAtlasSource_c78tf")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_py7ct"]
-texture = ExtResource("4_rn5j6")
-1:0/0 = 0
-2:0/0 = 0
-0:1/0 = 0
-2:1/0 = 0
-1:2/0 = 0
-1:1/0 = 0
-2:2/0 = 0
+texture = ExtResource("14_sa2wl")
+texture_region_size = Vector2i(40, 40)
+0:0/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_f7cnd"]
+tile_size = Vector2i(40, 40)
 sources/0 = SubResource("TileSetAtlasSource_py7ct")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nrsnt"]
-texture = ExtResource("3_xfgdl")
-1:0/0 = 0
-1:1/0 = 0
-2:1/0 = 0
-0:2/0 = 0
-2:2/0 = 0
-1:3/0 = 0
-0:1/0 = 0
-1:2/0 = 0
+texture = ExtResource("15_sa2wl")
+texture_region_size = Vector2i(40, 40)
+0:0/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_lxs5u"]
+tile_size = Vector2i(40, 40)
 sources/0 = SubResource("TileSetAtlasSource_nrsnt")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_i5kdi"]
-texture = ExtResource("2_sa2wl")
-1:1/0 = 0
-2:1/0 = 0
-2:2/0 = 0
-0:3/0 = 0
-0:1/0 = 0
-0:2/0 = 0
-1:2/0 = 0
-1:3/0 = 0
-2:3/0 = 0
+texture = ExtResource("16_sa2wl")
+texture_region_size = Vector2i(40, 40)
+0:0/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_xjhb4"]
+tile_size = Vector2i(40, 40)
 sources/0 = SubResource("TileSetAtlasSource_i5kdi")
 
 [node name="Node2D" type="Node2D" unique_id=63489025]
 script = ExtResource("1_8dm54")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=278172738]
+
+[node name="Label2" type="Label" parent="CanvasLayer" unique_id=1764911137]
+offset_left = 250.0
+offset_top = 34.0
+offset_right = 494.0
+offset_bottom = 57.0
+theme_override_fonts/font = ExtResource("2_xfgdl")
+theme_override_font_sizes/font_size = 21
+text = "Mystery Word:"
+
+[node name="Label" type="Label" parent="CanvasLayer" unique_id=308785116]
+offset_left = 520.0
+offset_top = 34.0
+offset_right = 726.0
+offset_bottom = 55.0
+theme_override_fonts/font = ExtResource("2_xfgdl")
+theme_override_font_sizes/font_size = 21
 
 [node name="walls1" type="TileMapLayer" parent="." unique_id=510541067]
 visible = false
@@ -454,33 +471,32 @@ tile_set = SubResource("TileSet_sa2wl")
 
 [node name="o" type="TileMapLayer" parent="." unique_id=706443667]
 z_index = 1
-tile_map_data = PackedByteArray("AACgACgAAAABAAAAAACgACkAAAABAAEAAACgACoAAAABAAIAAAChACgAAAACAAAAAAChACkAAAACAAEAAAChACoAAAACAAIAAACiACgAAAADAAAAAACiACkAAAADAAEAAACiACoAAAADAAIAAAA=")
+tile_map_data = PackedByteArray("AACgACgAAAABAAAAAACgACkAAAABAAEAAACgACoAAAABAAIAAAChACgAAAACAAAAAAChACkAAAACAAEAAAChACoAAAACAAIAAACiACgAAAADAAAAAACiACkAAAADAAEAAACiACoAAAADAAIAAAD8/x4AAAAAAAAAAAA=")
 tile_set = SubResource("TileSet_xfgdl")
 
 [node name="z" type="TileMapLayer" parent="." unique_id=1514321908]
 z_index = 1
-tile_map_data = PackedByteArray("AABQAE4AAAABAAEAAABQAE8AAAABAAIAAABQAFAAAAABAAMAAABRAE4AAAACAAEAAABRAE8AAAACAAIAAABRAFAAAAACAAMAAAA=")
+tile_map_data = PackedByteArray("AABQAE4AAAABAAEAAABQAE8AAAABAAIAAABQAFAAAAABAAMAAABRAE4AAAACAAEAAABRAE8AAAACAAIAAABRAFAAAAACAAMAAAArACMAAAAAAAAAAAA=")
 tile_set = SubResource("TileSet_fgt4w")
 
 [node name="i" type="TileMapLayer" parent="." unique_id=712867473]
 z_index = 1
-position = Vector2(-70, 0)
-tile_map_data = PackedByteArray("AACAABAAAAABAAAAAACAABEAAAABAAEAAACAABIAAAABAAIAAACBABAAAAACAAAAAACBABEAAAACAAEAAACBABIAAAACAAIAAAA=")
+tile_map_data = PackedByteArray("AACAABAAAAABAAAAAACAABEAAAABAAEAAACAABIAAAABAAIAAACBABAAAAACAAAAAACBABEAAAACAAEAAACBABIAAAACAAIAAAA+ABAAAAAAAAAAAAA=")
 tile_set = SubResource("TileSet_wu4ic")
 
 [node name="h" type="TileMapLayer" parent="." unique_id=725154543]
 z_index = 1
-tile_map_data = PackedByteArray("AAAiAEAAAAAAAAEAAAAjAD8AAAABAAAAAAAjAEAAAAABAAEAAAAjAEEAAAABAAIAAAAkAD8AAAACAAAAAAAkAEAAAAACAAEAAAAkAEEAAAACAAIAAAA=")
+tile_map_data = PackedByteArray("AAAiAEAAAAAAAAEAAAAjAD8AAAABAAAAAAAjAEAAAAABAAEAAAAjAEEAAAABAAIAAAAkAD8AAAACAAAAAAAkAEAAAAACAAEAAAAkAEEAAAACAAIAAAAYAAwAAAAAAAAAAAA=")
 tile_set = SubResource("TileSet_f7cnd")
 
 [node name="c" type="TileMapLayer" parent="." unique_id=1361276752]
 z_index = 1
-tile_map_data = PackedByteArray("AACUAFMAAAAAAAEAAACUAFQAAAAAAAIAAACVAFIAAAABAAAAAACVAFMAAAABAAEAAACVAFQAAAABAAIAAACVAFUAAAABAAMAAACWAFMAAAACAAEAAACWAFQAAAACAAIAAAA=")
+tile_map_data = PackedByteArray("AACUAFMAAAAAAAEAAACUAFQAAAAAAAIAAACVAFIAAAABAAAAAACVAFMAAAABAAEAAACVAFQAAAABAAIAAACVAFUAAAABAAMAAACWAFMAAAACAAEAAACWAFQAAAACAAIAAAArAAsAAAAAAAAAAAA=")
 tile_set = SubResource("TileSet_lxs5u")
 
 [node name="s" type="TileMapLayer" parent="." unique_id=1339236154]
 z_index = 1
-tile_map_data = PackedByteArray("AABDAB0AAAAAAAEAAABDAB4AAAAAAAIAAABDAB8AAAAAAAMAAABEAB0AAAABAAEAAABEAB4AAAABAAIAAABEAB8AAAABAAMAAABFAB0AAAACAAEAAABFAB4AAAACAAIAAABFAB8AAAACAAMAAAA=")
+tile_map_data = PackedByteArray("AAAZABYAAAAAAAAAAAA=")
 tile_set = SubResource("TileSet_xjhb4")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

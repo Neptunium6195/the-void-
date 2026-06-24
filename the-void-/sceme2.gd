@@ -2,6 +2,7 @@ extends Node2D
 
 var snake_body = [Vector2i(5,10), Vector2i(4,10), Vector2i(3,10), Vector2i(2,10)]
 var snake_direction = Vector2i(1,0)
+#var snake_body = [Vector2i(67,29), Vector2i(66,29), Vector2i(65,29), Vector2i(64,29)]
 
 const SOURCE_ID = 0
 var visual_head_pos: Vector2
@@ -35,15 +36,28 @@ func get_letter_at(tile: Vector2i) -> String:
 
 func check_letter_collected():
 	var head = snake_body[0]
-	var letter = get_letter_at(head)
-	if letter == "":
-		return
-	for i in range(WORD.size()):
-		if WORD[i] == letter and found_letters[i] == "_":
-			found_letters[i] = letter
-			erase_letter(head, letter)
-			update_word_display()
-		break
+	var letter_layers = {
+		"s": $s,
+		"c": $c,
+		"h": $h,
+		"i": $i,
+		"z": $z,
+		"o": $o,
+	}
+	for letter in letter_layers:
+		var layer = letter_layers[letter]
+		if layer.get_cell_source_id(head) != -1:
+			
+			print("detected letter: '", letter, "'")
+			print(WORD.size())
+			for i in range(WORD.size()):
+				print("comparing WORD[", i, "]='", WORD[i], "' with letter='", letter, "' match:", WORD[i] == letter)
+				if WORD[i] == letter and found_letters[i] == "_":
+					found_letters[i] = letter
+					for cell in layer.get_used_cells():
+						layer.erase_cell(cell)
+					update_word_display()
+					break
 
 func erase_letter(hit_tile: Vector2i, letter: String):
 	for cell in $layers.get_used_cells():
@@ -54,13 +68,13 @@ func erase_letter(hit_tile: Vector2i, letter: String):
 			$layers.erase_cell(cell)
 
 func update_word_display():
-	$CanvasLayer/WordLabel.text = " ".join(found_letters)
+	print("updating display: ", found_letters)
+	$CanvasLayer/Label.text = " ".join(found_letters)
 
 func _ready():
+	print("letter_s global pos: ", $s.global_position)
 	update_word_display()
-	print("h walls sample: ", $walls.get_used_cells().slice(0, 10))
-	print("v walls sample: ", $walls2.get_used_cells().slice(0, 10))
-	#print("wall cells count: ", $walls.get_used_cells().size())
+	
 	$Camera2D.zoom = Vector2(1.5, 1.5)
 	draw_snake()
 	visual_head_pos = $snake.map_to_local(snake_body[0])
