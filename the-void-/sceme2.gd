@@ -6,7 +6,58 @@ var snake_direction = Vector2i(1,0)
 const SOURCE_ID = 0
 var visual_head_pos: Vector2
 
+# Add these variables at the top
+var found_letters = ["_", "_", "_", "_", "_", "_"]  # s,c,h,i,z,o
+
+# Atlas ranges for each letter (min corner, max corner)
+const LETTER_ATLAS = {
+	"s": {"min": Vector2i(0,1), "max": Vector2i(2,3)},
+	"c": {"min": Vector2i(0,1), "max": Vector2i(2,2)},
+	"h": {"min": Vector2i(1,0), "max": Vector2i(2,2)},
+	"i": {"min": Vector2i(1,0), "max": Vector2i(2,2)},
+	"z": {"min": Vector2i(1,1), "max": Vector2i(2,3)},
+	"o": {"min": Vector2i(1,0), "max": Vector2i(3,2)},
+}
+
+const WORD = ["s", "c", "h", "i", "z", "o"]
+
+func get_letter_at(tile: Vector2i) -> String:
+	var atlas = $layers.get_cell_atlas_coords(tile)
+	if atlas == Vector2i(-1, -1):
+		return ""  # empty cell
+	for letter in LETTER_ATLAS:
+		var min_a = LETTER_ATLAS[letter]["min"]
+		var max_a = LETTER_ATLAS[letter]["max"]
+		if atlas.x >= min_a.x and atlas.x <= max_a.x and \
+			atlas.y >= min_a.y and atlas.y <= max_a.y:
+			return letter
+	return ""
+
+func check_letter_collected():
+	var head = snake_body[0]
+	var letter = get_letter_at(head)
+	if letter == "":
+		return
+	for i in range(WORD.size()):
+		if WORD[i] == letter and found_letters[i] == "_":
+			found_letters[i] = letter
+			erase_letter(head, letter)
+			update_word_display()
+		break
+
+func erase_letter(hit_tile: Vector2i, letter: String):
+	for cell in $layers.get_used_cells():
+		var atlas = $layers.get_cell_atlas_coords(cell)
+		var min_a = LETTER_ATLAS[letter]["min"]
+		var max_a = LETTER_ATLAS[letter]["max"]
+		if atlas.x >= min_a.x and atlas.x <= max_a.x and atlas.y >= min_a.y and atlas.y <= max_a.y:
+			$layers.erase_cell(cell)
+
+func update_word_display():
+	$CanvasLayer/WordLabel.text = " ".join(found_letters)
+
 func _ready():
+	update_word_display()
 	print("h walls sample: ", $walls.get_used_cells().slice(0, 10))
 	print("v walls sample: ", $walls2.get_used_cells().slice(0, 10))
 	#print("wall cells count: ", $walls.get_used_cells().size())
@@ -165,6 +216,7 @@ func _process(delta):
 	
 func _on_timer_timeout() -> void:
 	move_snake()
+	check_letter_collected()
 	draw_snake()
 	update_camera()
 	pass # Replace with function body.
